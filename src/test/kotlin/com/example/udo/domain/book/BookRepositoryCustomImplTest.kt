@@ -2,7 +2,6 @@ package com.example.udo.domain.book
 
 import com.example.udo.domain.bookrent.BookRentEntity
 import com.example.udo.domain.bookrent.BookRentRepository
-import com.example.udo.domain.user.Password
 import com.example.udo.domain.user.UserEntity
 import com.example.udo.domain.user.UserRepository
 import jakarta.persistence.EntityManager
@@ -97,14 +96,14 @@ class BookRepositoryCustomImplTest {
     }
 
     fun createUser(): UserEntity {
-        val user = UserEntity("name", "email", "phoneNumber", Password("password"))
+        val user = UserEntity.create("name", "email", "phoneNumber", "password")
         userRepository.save(user)
         em.persist(user)
         return user
     }
 
     fun createBook(fee: Int, user: UserEntity): BookEntity {
-        val book = BookEntity("title1", "isbn", Fee(fee), user)
+        val book = BookEntity.create("title1", "isbn", fee, user)
         bookRepository.save(book)
         em.persist(book)
         return book
@@ -112,7 +111,7 @@ class BookRepositoryCustomImplTest {
 
     fun rentBook(book: BookEntity, user: UserEntity, times: Int) {
         repeat(times) {
-            val bookRent = BookRentEntity(book, user)
+            val bookRent = BookRentEntity.create(book, user)
             bookRentRepository.save(bookRent)
             em.persist(bookRent)
         }

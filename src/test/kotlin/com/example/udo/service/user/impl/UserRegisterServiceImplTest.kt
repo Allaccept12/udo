@@ -4,7 +4,8 @@ import com.example.udo.domain.user.UserEntity
 import com.example.udo.domain.user.UserRepository
 import com.example.udo.service.user.dto.RegisterRequest
 import com.example.udo.service.user.validator.UserRegisterValidator
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.*
 

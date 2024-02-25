@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "books")
-class BookEntity(
+class BookEntity private constructor(
     val title: String,
     val isbn: String,
 
@@ -39,6 +39,17 @@ class BookEntity(
     fun updateStatus(status: BookStatus): BookEntity {
         this.status = status
         return this
+    }
+
+    companion object {
+        fun create(title: String, isbn: String, fee: Int, user: UserEntity): BookEntity {
+            return BookEntity(
+                title,
+                isbn,
+                Fee(fee),
+                user
+            )
+        }
     }
 
 }

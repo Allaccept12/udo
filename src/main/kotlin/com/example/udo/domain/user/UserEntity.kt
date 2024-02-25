@@ -5,7 +5,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "users")
-class UserEntity(
+class UserEntity private constructor(
     val name: String,
     val email: String,
     val phoneNumber: String,

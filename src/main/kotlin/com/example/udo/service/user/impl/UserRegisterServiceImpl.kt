@@ -1,5 +1,6 @@
 package com.example.udo.service.user.impl
 
+import com.example.udo.domain.user.Password
 import com.example.udo.domain.user.UserEntity
 import com.example.udo.domain.user.UserRepository
 import com.example.udo.service.user.UserRegisterService

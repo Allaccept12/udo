@@ -2,10 +2,8 @@ package com.example.udo.service.circulation.impl
 
 import com.example.udo.domain.book.BookEntity
 import com.example.udo.domain.book.BookRepository
-import com.example.udo.domain.book.Fee
 import com.example.udo.domain.bookrent.BookRentEntity
 import com.example.udo.domain.bookrent.BookRentRepository
-import com.example.udo.domain.user.Password
 import com.example.udo.domain.user.UserEntity
 import com.example.udo.domain.user.UserRepository
 import com.example.udo.event.BookRentEvent
@@ -22,8 +20,6 @@ import org.springframework.context.ApplicationEventPublisher
 import org.springframework.orm.ObjectOptimisticLockingFailureException
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ExecutionException
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
 
 class BookRentServiceImplTest {
 
@@ -45,11 +41,11 @@ class BookRentServiceImplTest {
         val userId = 1L
         val bookIds = listOf(1L, 2L)
         val request = BookRentRequest(bookIds)
-        val user = UserEntity("name", "email", "phoneNumber", Password("password"))
-        val user2 = UserEntity("name", "email", "phoneNumber", Password("password"))
+        val user = UserEntity.create("name", "email", "phoneNumber", "password")
+        val user2 = UserEntity.create("name", "email", "phoneNumber", "password")
         val books = listOf(
-            BookEntity("title1", "isbn1", Fee(100), user),
-            BookEntity("title2", "isbn2", Fee(200), user)
+            BookEntity.create("title1", "isbn1", 100, user),
+            BookEntity.create("title2", "isbn2", 200, user)
         )
 
         whenever(userRepository.getReferenceById(userId)).thenReturn(user2)

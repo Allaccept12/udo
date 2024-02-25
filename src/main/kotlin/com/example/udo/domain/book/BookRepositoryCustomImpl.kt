@@ -4,7 +4,10 @@ import com.example.udo.domain.bookrent.BookRentEntity
 import com.example.udo.domain.user.UserEntity
 import jakarta.persistence.EntityManager
 import jakarta.persistence.PersistenceContext
-import jakarta.persistence.criteria.*
+import jakarta.persistence.criteria.CriteriaBuilder
+import jakarta.persistence.criteria.CriteriaQuery
+import jakarta.persistence.criteria.JoinType
+import jakarta.persistence.criteria.Root
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Repository
 import java.time.LocalDateTime

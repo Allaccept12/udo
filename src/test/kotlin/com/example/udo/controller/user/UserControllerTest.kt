@@ -6,7 +6,6 @@ import com.example.udo.service.user.dto.LoginRequest
 import com.example.udo.service.user.dto.LoginResponse
 import com.example.udo.service.user.dto.RegisterRequest
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.*
 import org.springframework.beans.factory.annotation.Autowired

@@ -1,12 +1,12 @@
 package com.example.udo.service.user.impl
 
-import com.example.udo.domain.user.Password
 import com.example.udo.domain.user.UserEntity
 import com.example.udo.domain.user.UserRepository
 import com.example.udo.service.authentication.JwtTokenService
 import com.example.udo.service.user.UserLoginService
 import com.example.udo.service.user.dto.LoginRequest
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.mock
 import org.mockito.kotlin.any
@@ -22,7 +22,7 @@ class UserLoginServiceImplTest {
     fun `login succeeds with correct credentials`() {
         // Given
         val email = "user@example.com"
-        val userEntity = UserEntity("name", email, "1234567890", Password("password"))
+        val userEntity = UserEntity.create("name", email, "1234567890", "password")
         userEntity.id = 10L
         val loginRequest = LoginRequest(email, "password")
         val expectedToken = "token"
@@ -53,7 +53,7 @@ class UserLoginServiceImplTest {
     fun `login fails with incorrect password`() {
         // Given
         val email = "user@example.com"
-        val userEntity = UserEntity("name", email, "1234567890", Password("password"))
+        val userEntity = UserEntity.create("name", email, "1234567890", "password")
         userEntity.id = 10L
         val loginRequest = LoginRequest(email, "incorrectPassword")
 

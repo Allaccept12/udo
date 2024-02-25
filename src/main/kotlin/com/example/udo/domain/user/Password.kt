@@ -1,6 +1,5 @@
 package com.example.udo.domain.user
 
-import jakarta.persistence.Column
 import jakarta.persistence.Embeddable
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 

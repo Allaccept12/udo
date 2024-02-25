@@ -2,7 +2,6 @@ package com.example.udo.service.circulation.impl
 
 import com.example.udo.domain.book.BookEntity
 import com.example.udo.domain.book.BookRepository
-import com.example.udo.domain.book.Fee
 import com.example.udo.domain.user.UserRepository
 import com.example.udo.service.circulation.BookConsignService
 import com.example.udo.service.circulation.dto.BookConsignRequest
@@ -18,10 +17,10 @@ class BookConsignServiceImpl(
     @Transactional
     override fun consign(userId: Long, request: BookConsignRequest) {
         val userEntity = userRepository.getReferenceById(userId)
-        BookEntity(
+        BookEntity.create(
             title = request.title,
             isbn = request.isbn,
-            fee = Fee(request.rentFee),
+            fee = request.rentFee,
             user = userEntity
         ).let(bookRepository::save)
     }

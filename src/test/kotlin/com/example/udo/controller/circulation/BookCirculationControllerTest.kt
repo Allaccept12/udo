@@ -10,7 +10,6 @@ import com.example.udo.service.circulation.dto.BookConsignRequest
 import com.example.udo.service.circulation.dto.BookDetailResponse
 import com.example.udo.service.circulation.dto.BookRentRequest
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.*
 import org.springframework.beans.factory.annotation.Autowired

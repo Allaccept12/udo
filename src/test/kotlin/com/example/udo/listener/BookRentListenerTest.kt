@@ -3,16 +3,11 @@ package com.example.udo.listener
 import com.example.udo.domain.book.BookEntity
 import com.example.udo.domain.book.BookRepository
 import com.example.udo.domain.book.BookStatus
-import com.example.udo.domain.book.Fee
-import com.example.udo.domain.user.Password
 import com.example.udo.domain.user.UserEntity
 import com.example.udo.event.BookRentEvent
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.*
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.scheduling.TaskScheduler
 import java.time.Instant
 
@@ -28,7 +23,7 @@ class BookRentListenerTest {
         val rentedBookIds = listOf(1L, 2L)
         val bookRentEvent = BookRentEvent(rentedBookIds)
         val books = rentedBookIds.map {
-            BookEntity("Title $it", "ISBN$it", Fee(100), UserEntity("name", "email", "1234567890", Password("password"))).apply {
+            BookEntity.create("Title $it", "ISBN$it", 100, UserEntity.create("name", "email", "1234567890", "password")).apply {
                 id = it
                 status = BookStatus.RENTED
             }

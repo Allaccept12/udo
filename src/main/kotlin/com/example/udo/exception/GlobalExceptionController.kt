@@ -2,8 +2,6 @@ package com.example.udo.exception
 
 import com.example.udo.common.log.logger
 import com.example.udo.exception.dto.FailDto
-import com.fasterxml.jackson.databind.exc.ValueInstantiationException
-import com.fasterxml.jackson.module.kotlin.MissingKotlinParameterException
 import jakarta.validation.ValidationException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

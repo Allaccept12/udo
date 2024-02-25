@@ -43,9 +43,9 @@ class BookRentServiceImpl(
     }
 
     private fun createBookRents(user: UserEntity, books: List<BookEntity>): List<BookRentEntity> {
-        return books.map {
-            it.status = BookStatus.RENTED
-            BookRentEntity(user = user, book = it)
+        return books.map { book ->
+            book.updateStatus(BookStatus.RENTED)
+            BookRentEntity.create(book, user)
         }
     }
 }
