@@ -9,7 +9,13 @@ import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "books")
+@Table(
+    name = "books",
+    indexes = [
+        Index(name = "idx_created_at", columnList = "createdAt DESC"),
+        Index(name = "idx_fee", columnList = "fee ASC"),
+    ]
+)
 class BookEntity private constructor(
     val title: String,
     val isbn: String,

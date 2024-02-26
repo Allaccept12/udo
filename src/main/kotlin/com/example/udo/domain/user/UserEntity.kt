@@ -4,7 +4,12 @@ import com.example.udo.domain.BaseEntity
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "users")
+@Table(
+    name = "users",
+    uniqueConstraints = [
+        UniqueConstraint(name = "uc_email", columnNames = ["email"])
+    ]
+)
 class UserEntity private constructor(
     val name: String,
     val email: String,
