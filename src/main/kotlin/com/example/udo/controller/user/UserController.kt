@@ -17,12 +17,12 @@ class UserController(
     private val userLoginService: UserLoginService
 ) {
 
-    @PostMapping("/register")
+    @PostMapping("/user/register")
     fun register(@Valid @RequestBody request: RegisterRequest) {
         userRegisterService.register(request)
     }
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     fun login(@Valid @RequestBody request: LoginRequest): LoginResponse {
         return userLoginService.login(request)
     }

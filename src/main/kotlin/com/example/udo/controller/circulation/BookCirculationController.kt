@@ -22,7 +22,7 @@ class BookCirculationController(
     private val bookInquiryService: BookInquiryService
 ) {
 
-    @PostMapping("/consign")
+    @PostMapping("/book/consign")
     fun consign(
         @AuthenticationPrincipal user: CustomUserDetails,
         @Valid @RequestBody request: BookConsignRequest
@@ -30,7 +30,7 @@ class BookCirculationController(
         bookConsignmentService.consign(user.getId(), request)
     }
 
-    @PostMapping("/rent")
+    @PostMapping("/book/rent")
     fun rent(
         @AuthenticationPrincipal user: CustomUserDetails,
         @RequestBody bookRentRequest: BookRentRequest
