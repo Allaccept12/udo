@@ -3,6 +3,7 @@ package com.example.udo.domain.book
 import com.example.udo.domain.BaseEntity
 import com.example.udo.domain.bookrent.BookRentEntity
 import com.example.udo.domain.user.UserEntity
+import com.example.udo.exception.RentFeeNegativeNumberException
 import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
