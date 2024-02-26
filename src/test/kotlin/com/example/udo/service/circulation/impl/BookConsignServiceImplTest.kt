@@ -35,7 +35,7 @@ class BookConsignServiceImplTest {
         val savedBook = bookCaptor.firstValue
         assertEquals(request.title, savedBook.title)
         assertEquals(request.isbn, savedBook.isbn)
-        assertEquals(request.rentFee, savedBook.fee.value)
+        assertEquals(request.fee, savedBook.fee.value)
         assertEquals(userEntity, savedBook.user)
     }
 }

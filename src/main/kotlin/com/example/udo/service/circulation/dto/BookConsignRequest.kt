@@ -12,5 +12,5 @@ data class BookConsignRequest(
     val isbn: String,
 
     @field:NotNull
-    val rentFee: Int
+    val fee: Int
 )

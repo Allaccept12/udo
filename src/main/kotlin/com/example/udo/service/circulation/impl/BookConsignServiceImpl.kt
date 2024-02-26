@@ -20,7 +20,7 @@ class BookConsignServiceImpl(
         BookEntity.create(
             title = request.title,
             isbn = request.isbn,
-            fee = request.rentFee,
+            fee = request.fee,
             user = userEntity
         ).let(bookRepository::save)
     }
