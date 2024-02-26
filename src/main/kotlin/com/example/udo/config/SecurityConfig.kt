@@ -33,7 +33,7 @@ class SecurityConfig(
             .authorizeHttpRequests { authorizeHttpRequests ->
                 authorizeHttpRequests
                     .requestMatchers("/h2-console/**").permitAll()
-                    .requestMatchers("/register", "/login", "/books").permitAll()
+                    .requestMatchers("/user/**", "/books").permitAll()
                     .anyRequest().authenticated()
             }
             .addFilterBefore(JwtAuthenticationFilter(jwtTokenService, customAuthenticationFailureHandler()), UsernamePasswordAuthenticationFilter::class.java)

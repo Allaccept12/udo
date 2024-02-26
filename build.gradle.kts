@@ -49,3 +49,20 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	archiveFileName.set("udo-application.jar")
+}
+
+tasks.register<Zip>("zip") {
+	dependsOn("bootJar")
+	from(projectDir) {
+		include("src/**")
+		include("build.gradle.kts")
+		exclude("**/.gradle", "**/build", "**/.idea", "**/*.iml")
+	}
+	from(tasks.named("bootJar").get().outputs)
+
+	archiveFileName.set("udo-hde.zip")
+	destinationDirectory.set(file("$buildDir/distributions"))
+}
