@@ -2,6 +2,7 @@ package com.example.udo.service.circulation.impl
 
 import com.example.udo.domain.book.BookEntity
 import com.example.udo.domain.book.BookRepository
+import com.example.udo.domain.book.BookStatus
 import com.example.udo.domain.bookrent.BookRentEntity
 import com.example.udo.domain.bookrent.BookRentRepository
 import com.example.udo.domain.user.UserEntity
@@ -64,6 +65,8 @@ class BookRentServiceImplTest {
         assertEquals(user2, capturedBookRents[0].user)
         assertEquals(books[1], capturedBookRents[1].book)
         assertEquals(user2, capturedBookRents[1].user)
+        assertEquals(books[0].status, BookStatus.RENTED)
+        assertEquals(books[1].status, BookStatus.RENTED)
 
         verify(applicationEventPublisher).publishEvent(any<BookRentEvent>())
     }
