@@ -13,12 +13,12 @@ class ISBNValidatorTest {
 
     @Test
     fun `ISBN with 13 digits is valid`() {
-        assertTrue(isbnValidator.isValid("1234567890123", context))
+        assertTrue(isbnValidator.isValid("9780306406157", context))
     }
 
     @Test
     fun `ISBN with 3-10 digit format is valid`() {
-        assertTrue(isbnValidator.isValid("123-4567890123", context))
+        assertTrue(isbnValidator.isValid("0-321-14653-0", context))
     }
 
     @Test
